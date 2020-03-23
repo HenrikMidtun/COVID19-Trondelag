@@ -1,0 +1,83 @@
+{
+    'version': '1.0', 
+    'type': 'covid19trd', 
+    'data': {'data': [
+            {'id': '5001', 'navn': 'Trondheim', 'smittet': '82', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5036', 'navn': 'Frosta', 'smittet': '23', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5037', 'navn': 'Levanger', 'smittet': '9', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5021', 'navn': 'Oppdal', 'smittet': '6', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5006', 'navn': 'Steinkjer', 'smittet': '6', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5057', 'navn': 'Ørland', 'smittet': '6', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5059', 'navn': 'Orkland', 'smittet': '5', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5027', 'navn': 'Midtre Gauldal', 'smittet': '4', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5029', 'navn': 'Skaun', 'smittet': '3', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5028', 'navn': 'Melhus', 'smittet': '2', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5031', 'navn': 'Malvik', 'smittet': '2', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5032', 'navn': 'Selbu', 'smittet': '2', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5053', 'navn': 'Inderøy', 'smittet': '2', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5022', 'navn': 'Rennebu', 'smittet': '2', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5038', 'navn': 'Verdal', 'smittet': '1', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5047', 'navn': 'Overhalla', 'smittet': '1', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5035', 'navn': 'Stjørdal', 'smittet': '1', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5054', 'navn': 'Indre Fosen', 'smittet': '1', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5026', 'navn': 'Holtålen', 'smittet': '1', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5058', 'navn': 'Åfjord', 'smittet': '1', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5045', 'navn': 'Grong', 'smittet': '1', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5033', 'navn': 'Tydal', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5042', 'navn': 'Lierne', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5044', 'navn': 'Namsskogan', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5041', 'navn': 'Snåsa', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5046', 'navn': 'Høylandet', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5034', 'navn': 'Meråker', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5049', 'navn': 'Flatanger', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5052', 'navn': 'Leka', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5043', 'navn': 'Røyrvik', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5025', 'navn': 'Røros', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5055', 'navn': 'Heim', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5056', 'navn': 'Hitra', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5020', 'navn': 'Osen', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5014', 'navn': 'Frøya', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5007', 'navn': 'Namsos', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5060', 'navn': 'Nærøysund', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            },
+            {'id': '5061', 'navn': 'Rindal', 'smittet': '0', 'dode': '0', 'comment': '', 'other': ''
+            }
+        ], 'updated': '2020-03-23T14: 49: 44.907Z'
+    }
+}
