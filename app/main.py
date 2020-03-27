@@ -1,6 +1,16 @@
 import requests
 import dateutil.parser
+from time import sleep
 from bs4 import BeautifulSoup as bs
+
+'''
+    Lage en enkel QT applikasjon som viser
+        Trondheim
+        #Antall smittede
+        #Døde
+        #Sist oppdatert
+    #Horisontalt løpende liste med data fra andre steder i trøndelag
+'''
 
 #setup
 url = "spesial.adressa.no/api/covid19trd"
@@ -29,7 +39,6 @@ def print_important_data(city_dict):
     print("\t"+ city_dict['navn'])
     print("Antall smittede: {}".format(city_dict['smittet']))
     print("Antall døde: {}".format(city_dict['dode']))
-    print("Sist oppdatert: {}".format(get_when_updated().strftime("%b %d %Y %H:%M:%S")))
 
 def get_available_cities():
     data = get_data()
@@ -45,7 +54,35 @@ def get_county_total_infected():
         total += int(item['smittet'])
     return total
 
-trd_dict = get_city_info('Trondheim')
-print_important_data(trd_dict)
-print(get_available_cities())
-print(get_county_total_infected())
+def print_data_all_cities():
+    cities = get_available_cities()
+    for city in cities:
+        print_important_data(get_city_info(city))
+        print("------------------")
+    print("Sist oppdatert: {}".format(get_when_updated().strftime("%b %d %Y %H:%M:%S")))
+
+def print_data_top(num: int=0):
+    cities = get_available_cities()
+
+    if num == 0:
+        num = len(cities)
+
+    for i in range(num):
+        print_important_data(get_city_info(cities[i]))
+        print("-----------------------")
+    print("Sist oppdatert: {}".format(get_when_updated().strftime("%b %d %Y %H:%M:%S")))
+    
+
+
+def main():
+
+    while(True):
+        print_data_top(3)
+        sleep(3)
+        
+        
+
+if __name__ == '__main__':
+    main()
+print_data_top(3)
+
