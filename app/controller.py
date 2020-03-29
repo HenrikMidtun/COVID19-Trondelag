@@ -40,4 +40,7 @@ class TrondelagController:
         for item in self.model.data:
             cities.append(item['navn'])
         return cities
+    
+    def update_model(self):
+        self.model.update()
 

@@ -1,5 +1,11 @@
 from tkinter import *
 from controller import TrondelagController
+
+"""
+
+    Remember to update the last_updated as well...
+    Move update of model out of view!
+"""
         
 class Page:
     def __init__(self, root=None):
@@ -26,25 +32,41 @@ class TrondheimPage(Page):
         
         infected = city_data['smittet']
         dead = city_data['dode']
-        stats_label = Label(
+        self.stats_label = Label(
             self.frame,
             text="{}/{}".format(infected,dead),
             fg='white', bg='black',
             font=("Helvetica",100)
             )
-        stats_label.pack()
-         
+        self.stats_label.place(relx=0.5,rely=0.5,anchor='center')
+        self.stats_label.after(300000, lambda: self.__update_info(name=name, rank=rank))
+    
 
     def __set_layout(self):
         self.__city_info('Trondheim')
         
         last_update = self.controller.last_updated()
-        update_label = Label(
+        self.update_label = Label(
             self.frame, text=last_update.strftime("%H:%M:%S"),
             fg='white', bg='black',
             font=("Helvetica",30)
             )
-        update_label.pack(side=BOTTOM)
+        self.update_label.pack(side=BOTTOM)
+        
+    def __update_info(self, name, rank):
+        self.controller.update_model()
+        city_data = self.controller.city_data(name=name, rank=rank)
+        
+        infected = city_data['smittet']
+        dead = city_data['dode']
+        self.stats_label.configure(text="{}/{}".format(infected,dead))
+        
+        
+        last_update = self.controller.last_updated()
+        self.update_label.configure(text=last_update.strftime("%H:%M:%S"))
+        
+        self.stats_label.after(300000, lambda: self.__update_info(name=name,rank=rank))
+
 
 class TopCasesPage(Page):
     def __init__(self, master):
@@ -125,4 +147,3 @@ class App():
         landing_page = LandingPage(self.root)
         self.root.mainloop()
         
-app=App()
