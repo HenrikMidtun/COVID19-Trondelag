@@ -5,9 +5,10 @@ While browsing their webpage I saw a table which was recently updated and found 
 The table is updated on a regular basis and is accessed by a simple web API, thanks to Addresseavisa for delivering this service.
 
 Fra SSH terminal:
+```bash
 	export DISPLAY=:0
 	*Kjør script*
 	ctrl+z
 	bg
 	disown
-
+```
