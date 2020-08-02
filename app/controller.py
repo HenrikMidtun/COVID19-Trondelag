@@ -5,12 +5,13 @@
     Delievers data
 '''
 from model import COVID
-
+from logger import CovidLogger
 
 class TrondelagController:
     
     def __init__(self):
         self.model = COVID()
+        self.logger = CovidLogger()
 
     #returns dictionary for city based on rank or name.
         
@@ -43,4 +44,15 @@ class TrondelagController:
     
     def update_model(self):
         self.model.update()
+        self.model.data = self.logger.last_entry
+        '''
+        if self.model.update():
+            pass
+        else:
+            self.model.data = self.logger.last_entry
+        '''    
+
+cont = TrondelagController()
+print()
+
 
