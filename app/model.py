@@ -4,6 +4,7 @@
 '''
 
 import requests
+
 import dateutil.parser
 
 class COVID:
@@ -18,8 +19,13 @@ class COVID:
     
     def update(self):
         print("Requesting data from Adressa...")
-        r = requests.get(url= "https://" + self.url, headers={"Authorization":"B9329CEF38B2F"})
-        f_json = r.json()
+        
+        f_json = self.data
+        try:
+            r = requests.get(url= "https://" + self.url, headers={"Authorization":"B9329CEF38B2F"})
+            f_json = r.json()
+        except:
+            pass
         
         print("Updating {} data...".format(self.__class__.__name__))
         self.data = f_json['data']['data']
