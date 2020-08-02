@@ -26,9 +26,9 @@ class TrondheimPage(Page):
         name = city_data['navn']
         name_label = Label(
             self.frame, text=name, fg='white', bg='black',
-            font=("Helvetica",50),
+            font=("Helvetica",110),
             )
-        name_label.pack()
+        name_label.place(relx=0.5,rely=0.15,anchor='center')
         
         infected = city_data['smittet']
         dead = city_data['dode']
@@ -36,7 +36,7 @@ class TrondheimPage(Page):
             self.frame,
             text="{}/{}".format(infected,dead),
             fg='white', bg='black',
-            font=("Helvetica",100)
+            font=("Helvetica",290)
             )
         self.stats_label.place(relx=0.5,rely=0.5,anchor='center')
         self.stats_label.after(300000, lambda: self.__update_info(name=name, rank=rank))
@@ -49,9 +49,9 @@ class TrondheimPage(Page):
         self.update_label = Label(
             self.frame, text=last_update.strftime("%H:%M:%S"),
             fg='white', bg='black',
-            font=("Helvetica",30)
+            font=("Helvetica",100)
             )
-        self.update_label.pack(side=BOTTOM)
+        self.update_label.place(relx=0.5,rely=0.9,anchor='center')
         
     def __update_info(self, name, rank):
         self.controller.update_model()
@@ -142,8 +142,9 @@ class LandingPage(Page):
 class App():
     def __init__(self):
         self.root = Tk()
-        self.root.geometry("500x500")
+        self.root.attributes("-fullscreen", True)
+        self.root.config(cursor="none")
         self.root.title("COVID-19 // TRD")
-        landing_page = LandingPage(self.root)
+        landing_page = TrondheimPage(self.root)
         self.root.mainloop()
         
