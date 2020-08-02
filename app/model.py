@@ -6,7 +6,7 @@
 import requests
 
 import dateutil.parser
-
+from datetime import timedelta
 class COVID:
     
     def __init__(self):
@@ -32,6 +32,6 @@ class COVID:
         
         iso_time = f_json['data']['updated']
         last_update = dateutil.parser.isoparse(iso_time)
-        self.last_updated = last_update
+        self.last_updated = last_update + timedelta(hours=2)
 
         
