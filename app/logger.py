@@ -1,6 +1,5 @@
 import jsonlines
 
-
 class CovidLogger:
     def __init__(self):
         self.log_path = 'history.jsonl'
@@ -9,12 +8,21 @@ class CovidLogger:
         with jsonlines.open(self.log_path, mode='a') as writer:
             writer.write(data)
 
-    def _get_last_entry(self):
+    def get_log(self):
+        log_data = []
         with jsonlines.open(self.log_path) as reader:
             for obj in reader.iter():
-                print(reader.read())
+                log_data.append(obj)
+        return log_data
 
-logger = CovidLogger()
-#logger.log_data({"hei":"verden"})
-logger._get_last_entry()
+    def get_last_entry(self):
+        log = self.get_log()
+        return log[-1]
+    
+    def update(self, data):
+        log_data(data)
+
+    
+
+        
 
