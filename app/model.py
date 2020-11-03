@@ -59,7 +59,7 @@ class COVID:
 
     def log_update(self):
         entry = {'info':{'last-update': 'NaN', 'local-time': 'NaN'}, 'data': []}
-        last_update = self.last_updated.strftime("%Y-%m-%d %H:%M:%S")
+        last_update = (self.last_updated - timedelta(hours=1)).strftime("%Y-%m-%d %H:%M:%S")
         local_time = strftime("%Y-%m-%d %H:%M:%S", localtime())
         entry['info']['last-update'] = last_update
         entry['info']['local-time'] = local_time
