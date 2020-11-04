@@ -5,11 +5,13 @@
     Delievers data
 '''
 from model import COVID
+from logger import CovidLogger
 
 class TrondelagController:
     
     def __init__(self):
         self.model = COVID()
+        self.logger = CovidLogger()
 
     def last_updated(self):
         return self.model.last_updated
@@ -39,5 +41,6 @@ class TrondelagController:
     
     def update_model(self):
         self.model.update()
+        self.logger.update()
 
 
