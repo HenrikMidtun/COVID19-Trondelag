@@ -39,12 +39,9 @@ class TrondheimPage(Page):
             font=("Helvetica",290)
             )
         self.stats_label.place(relx=0.5,rely=0.5,anchor='center')
-        self.stats_label.after(300000, lambda: self.__update_info(name=name, rank=rank))
-    
 
     def __set_layout(self):
         self.__city_info('Trondheim')
-        
         last_update = self.controller.last_updated()
         self.update_label = Label(
             self.frame, text=last_update.strftime("%H:%M:%S"),
@@ -52,8 +49,9 @@ class TrondheimPage(Page):
             font=("Helvetica",100)
             )
         self.update_label.place(relx=0.5,rely=0.9,anchor='center')
+        self.__update_info('Trondheim')
         
-    def __update_info(self, name, rank):
+    def __update_info(self, name=None, rank=0):
         self.controller.update_model()
         city_data = self.controller.city_data(name=name, rank=rank)
         
@@ -65,7 +63,7 @@ class TrondheimPage(Page):
         last_update = self.controller.last_updated()
         self.update_label.configure(text=last_update.strftime("%H:%M:%S"))
         
-        self.stats_label.after(300000, lambda: self.__update_info(name=name,rank=rank))
+        self.stats_label.after(30000, lambda: self.__update_info(name=name,rank=rank))
 
 
 class TopCasesPage(Page):

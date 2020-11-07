@@ -5,15 +5,11 @@ from time import localtime, strftime
 
 
 class CovidLogger:
-    def __init__(self):
-        self.covid = COVID()
+    def __init__(self, covid: COVID):
+        self.covid = covid
         self.log_path = 'history.jsonl'
         if not os.path.isfile(self.log_path):
             f = open(self.log_path, 'w')
-
-    def log_data(self, data):
-        with jsonlines.open(self.log_path, mode='a') as writer:
-            writer.write(data)
 
     def get_log(self):
         log_data = []
@@ -28,9 +24,6 @@ class CovidLogger:
             return None
         return log[-1]
     
-    def update(self, data):
-        log_data(data)
-
     def log_update(self):
         entry = {'info':{'last-update': 'NaN', 'local-time': 'NaN'}, 'data': []}
         last_update = self.covid.last_updated.strftime("%Y-%m-%d %H:%M:%S")
@@ -38,6 +31,10 @@ class CovidLogger:
         entry['info']['last-update'] = last_update
         entry['info']['local-time'] = local_time
         entry['data'] = self.covid.data
+        with jsonlines.open(self.log_path, mode='a') as writer:
+            writer.write(entry)
 
-        
+
+    def update(self):
+        self.log_update()        
 

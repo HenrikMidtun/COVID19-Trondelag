@@ -11,7 +11,7 @@ class TrondelagController:
     
     def __init__(self):
         self.model = COVID()
-        self.logger = CovidLogger()
+        self.logger = CovidLogger(self.model)
 
     def last_updated(self):
         return self.model.last_updated
