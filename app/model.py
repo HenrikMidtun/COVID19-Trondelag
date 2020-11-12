@@ -18,7 +18,11 @@ class COVID:
 
     def update(self):
         print("Requesting data from Adressa...")
-        r = requests.get(url= "https://" + self.url, headers={"Authorization":"B9329CEF38B2F"})
+        try:
+            r = requests.get(url= "https://" + self.url, headers={"Authorization":"B9329CEF38B2F"})
+        except requests.exceptions.RequestException as e:
+            print(e)
+            r = None
         if r != None:
             raw_data = r.json()
             print("Updating {} data...".format(self.__class__.__name__))
