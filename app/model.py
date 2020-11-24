@@ -17,19 +17,18 @@ class COVID:
         self.update()
 
     def update(self):
-        print("Requesting data from Adressa...")
         try:
+            print("Requesting data from Adressa...")
             r = requests.get(url= "https://" + self.url, headers={"Authorization":"B9329CEF38B2F"})
+            raw_data = r.json()
+            if r != None:
+                print("Updating {} data...".format(self.__class__.__name__))
+                self.data = self._prepare_data(raw_data)
+                iso_time = raw_data['data']['updated']
+                last_update = dateutil.parser.isoparse(iso_time)
+                self.last_updated = last_update + timedelta(hours=1)
         except requests.exceptions.RequestException as e:
             print(e)
-            r = None
-        if r != None:
-            raw_data = r.json()
-            print("Updating {} data...".format(self.__class__.__name__))
-            self.data = self._prepare_data(raw_data)
-            iso_time = raw_data['data']['updated']
-            last_update = dateutil.parser.isoparse(iso_time)
-            self.last_updated = last_update + timedelta(hours=1)
 
     def _prepare_data(self, raw_data):
         raw_data = raw_data['data']['data']
