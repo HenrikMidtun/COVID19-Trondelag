@@ -4,7 +4,7 @@
     Handles data
     Delievers data
 '''
-from model import COVID
+from model import COVID, HelseDirektoratet_COVID
 from logger import CovidLogger
 
 class TrondelagController:
@@ -43,4 +43,28 @@ class TrondelagController:
         self.model.update()
         self.logger.update()
 
+class HelsedirController:
+
+    def __init__(self, category = None):
+        self.model = HelseDirektoratet_COVID(category)
+        self.category = self.model.category
+
+    def last_updated(self):
+        return self.model.last_updated
+    
+    def hospitalized(self):
+        in_hospital = self.model.data[-1]['antInnlagte']
+        return in_hospital
+    
+    def respirator(self):
+        on_respirator = 0
+        if self.category == "nasjonalt":
+            on_respirator = self.model.data[-1]['antRespirator']
+        return on_respirator
+
+    def update_model(self):
+        self.model.update()
+    
+    def _print_data(self):
+        print(self.model.data)
 
